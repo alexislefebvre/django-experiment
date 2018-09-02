@@ -1,0 +1,18 @@
+# https://medium.com/@MicroPyramid/set-up-travis-ci-for-django-project-427d6dd2f46c
+language: python
+
+python:
+  - "3.6"
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+before_script:
+  - pip3 install Django
+  - python3 -m django --version
+  - python3 manage.py migrate 
+
+script:
+  - python3 manage.py test
+
